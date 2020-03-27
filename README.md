@@ -43,8 +43,8 @@ The format of the blacklist file is a line based text with lines such as:
 `vid pid comment`  where comment is ignored and only to remember what device it is
  
 e.g.  
-`0x06a3 0x0b6a Saitek X-65F HOTAS`
-`0x0738 0x2215 Saitek X55 Joystick` 
+`0x06a3 0x0b6a Saitek X-65F HOTAS`  
+`0x0738 0x2215 Saitek X55 Joystick`  
 
 Blist file checking is **NONE** - start in the first line and an NL at the end. 
 The maximum number of devices to collect is defined in BLACKLIST_SIZE (10)
@@ -58,10 +58,10 @@ In order to use the HIDOverlay :
 
 Just within the target application Exe folder:
 
-*Drop 'HidOverlay.dll' and rename it to 'Hid.dll'
-*Add a plain ASCII text file 'HidOverlay.blist' with the devices to be hidden
-*Without such a file there is no filtering of HID devices whatsoever.
-**Note: the 'HidOverlay.blist' file is read from the applications **current directory** and the calling application may change the current directory away from where the Exe is - this is kind of experimenting where to put the blist file**
-
-*To remove the support - just delete the Hid.dll from the application directory or rename it back to 'HIDOverlay.dll'
+*Drop 'HidOverlay.dll' and rename it to 'Hid.dll'  
+*Add a plain ASCII text file 'HidOverlay.blist' with the devices to be hidden  
+*Without such a file there is no filtering of HID devices whatsoever.  
+**Note: the 'HidOverlay.blist' file is read from the applications **current directory** and the calling application may change the current directory away from where the Exe is - this is kind of experimenting where to put the blist file**  
+  
+*To remove the support - just delete the Hid.dll from the application directory or rename it back to 'HIDOverlay.dll'<br>
 
