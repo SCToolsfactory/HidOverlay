@@ -1,0 +1,51 @@
+For SCJMapper 2.46
+==================
+
+- Put the x64 version of HidOverlay.dll into the SCJMapper Installation path where the SCJMapper.exe is
+- Rename it to hid.dll
+- Put the HidOverlay.blist file into the same directory
+
+Check Menu: Dump - Dump Logfile
+
+When I start then program without HidOverlay I get:
+
+-- 3/26/2020 6:37:54 PM - SC Joystick AC Path and Logfile --
+
+DXInput Device Listing:
+	joystick: vJoy Device
+	 - Product: {BEAD1234-0000-0000-0000-504944564944} - Instance: {47e6ef70-02d4-11e9-8002-444553540000}
+	joystick: Saitek Pro Flight X-55 Rhino Stick
+	 - Product: {22150738-0000-0000-0000-504944564944} - Instance: {6f187bc0-5d28-11e7-8006-444553540000}
+	joystick: X65F Flight Controller
+	 - Product: {0B6A06A3-0000-0000-0000-504944564944} - Instance: {a7663300-5deb-11e7-8001-444553540000}
+	mouse:    Mouse
+	 - Product: {6f1d2b60-d5a0-11cf-bfc7-444553540000} - Instance: {6f1d2b60-d5a0-11cf-bfc7-444553540000}
+
+
+Introducing HidOverlay and ask to hide in 'HidOverlay.blist'
+0x06a3 0x0b6a Saitek X-65F HOTAS
+0x0738 0x2215 Saitek X55 Joystick
+
+I get only my vJoy device detected:
+
+-- 3/26/2020 6:36:16 PM - SC Joystick AC Path and Logfile --
+
+DXInput Device Listing:
+	joystick: vJoy Device
+	 - Product: {BEAD1234-0000-0000-0000-504944564944} - Instance: {47e6ef70-02d4-11e9-8002-444553540000}
+	mouse:    Mouse
+	 - Product: {6f1d2b60-d5a0-11cf-bfc7-444553540000} - Instance: {6f1d2b60-d5a0-11cf-bfc7-444553540000}
+   
+   
+
+On another note - the required VID and PID for a device can be derived from above
+
+e.g. 
+	joystick: Saitek Pro Flight X-55 Rhino Stick
+	 - Product: {22150738-0000-0000-0000-504944564944} - Instance: {6f187bc0-5d28-11e7-8006-444553540000}
+               ^^^^^^^^
+Above take the starting part '22150738' split in two '2215' '0738' this is PID(2215) VID(0738) of this device
+the blist file takes them in VID PID order and needs the hex literal i.e.
+0x0738 0x2215 Saitek Pro Flight X-55 Rhino Stick
+
+

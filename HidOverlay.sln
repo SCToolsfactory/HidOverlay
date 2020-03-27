@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HidOverlay", "HidOverlay\HidOverlay.vcxproj", "{E5D9785C-3772-4C14-B737-F35DB5E139F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{B7F7E9A3-F35C-4C0F-881D-A5A74A6F928E}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Use", "Use", "{CEA34CFC-8B0F-472F-BA08-803FAB733D97}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\HidOverlay.blist = Docs\HidOverlay.blist
+		Docs\Note_SCJMapper.txt = Docs\Note_SCJMapper.txt
+		Docs\Note_StarCitizen.txt = Docs\Note_StarCitizen.txt
+		Docs\README.md = Docs\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Debug|x64.ActiveCfg = Debug|x64
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Debug|x64.Build.0 = Debug|x64
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Debug|x86.ActiveCfg = Debug|x64
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Debug|x86.Build.0 = Debug|x64
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Release|x64.ActiveCfg = Release|x64
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Release|x64.Build.0 = Release|x64
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Release|x86.ActiveCfg = Release|Win32
+		{E5D9785C-3772-4C14-B737-F35DB5E139F6}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {980A5DA0-E1CA-43D4-871E-1409591B3CDD}
+	EndGlobalSection
+EndGlobal

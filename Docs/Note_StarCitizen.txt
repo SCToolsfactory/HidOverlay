@@ -1,0 +1,72 @@
+For Star Citizen as of LIVE 3.8.2 Build(4640289)
+==================================================
+
+- Put the x64 version of HidOverlay.dll into the SC Installation path into the ..\LIVE\Bin64 folder
+- Rename it to hid.dll
+- Put the HidOverlay.blist file into the LIVE folder (where client.crt and Game.log is)
+
+For PTU users replace LIVE with PTU
+
+Run the Game from the Launcher..
+
+To check the detected devices look into the Game.log file (around line 84 in LIVE 3.8.2)
+
+When I start then game without HidOverlay I get:
+
+<17:58:55> - Connected joystick0: vJoy Device {BEAD1234-0000-0000-0000-504944564944}
+<17:58:55> - Connected joystick1: Saitek Pro Flight X-55 Rhino Stick {22150738-0000-0000-0000-504944564944}
+<17:58:55> - Connected joystick2: X65F Flight Controller {0B6A06A3-0000-0000-0000-504944564944}
+
+This would create js1 .. js3 in game mapped to joystick0 .. joystick2 with only one more left (no room for 2 MFD panels..)
+
+Introducing HidOverlay and ask to hide in 'HidOverlay.blist'
+0x06a3 0x0b6a Saitek X-65F HOTAS
+0x0738 0x2215 Saitek X55 Joystick
+
+I get only my vJoy device detected:
+
+<18:00:37> - Connected joystick0: vJoy Device {BEAD1234-0000-0000-0000-504944564944}
+
+This would create only js1 in game mapped to joystick0 with 3 more left for other use such as my 2 MFD panels..
+
+
+On another note - the required VID and PID for a device can be derived from above
+
+e.g. 
+<17:58:55> - Connected joystick1: Saitek Pro Flight X-55 Rhino Stick {22150738-0000-0000-0000-504944564944}
+                                                                      ^^^^^^^^
+Above take the starting part '22150738' split in two '2215' '0738' this is PID(2215) VID(0738) of this device
+the blist file takes them in VID PID order and needs the hex literal i.e.
+0x0738 0x2215 Saitek Pro Flight X-55 Rhino Stick
+
+
+
+--------------
+The Debug version of the DLL sends to 'HidOverlay.LOG' in the LIVE folder:
+
+1        LoadBlacklist from: 
+2        E:\G\StarCitizen\StarCitizen\LIVE 
+3          about to read.. 
+4        0x06a3 0x0b6a Saitek X-65F HOTAS
+5          found a Device 
+6        0x0738 0x2215 Saitek X55 Joystick
+7          found a Device 
+8        LoadHidModule .. 
+9        LoadHidModule OK 
+10        HidD_GetHidGuid 
+11        HidD_GetHidGuid 
+12        HidD_GetAttributes 
+13        HidD_GetAttributes 
+14        HidD_GetAttributes 
+15        HidD_GetAttributes 
+16        HidD_GetAttributes 
+17        HidD_GetAttributes 
+18        Intercepted: 0x0738 0x2215 
+19        HidD_GetAttributes 
+20        HidD_GetAttributes 
+21        Intercepted: 0x0738 0x2215 
+22        HidD_GetAttributes 
+23        Intercepted: 0x06a3 0x0b6a 
+24        HidD_GetAttributes 
+...
+...
